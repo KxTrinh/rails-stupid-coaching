@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stupid coaching</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <h1>Stupid Coaching</h1>
+    <div id="question">
+      <p><%= @answer %></p>
+      <span>-You</span>
+    </div>
+
+    <br>
+
+    <div id="answer">
+      <p><%=
+      if @answer[-1] == '?'
+        'Silly question, get dressed and go to work!'
+      elsif @answer == 'I am going to work'
+        'Great!'
+      else
+        "I don't care, get dressed and go to work!"
+      end
+      %></p>
+      <span>-Your coach</span>
+    </div>
+
+    <br>
+
+    <%= link_to "Ask a new question", "/ask" %>
+
+  </body>
+</html>
